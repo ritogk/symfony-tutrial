@@ -27,6 +27,12 @@ comment_id_seq
 ## symfony cache clear
 php bin/console cache:clear
 
+## symfony migration バージョン確認
+symfony console doctrine:migrations:status
+
+## symfony migrationを前のバージョンに戻す
+symfony console doctrine:migrations:execute 20171210142949 --down
+
 ## php
 # php モジュール確認
 php -m
