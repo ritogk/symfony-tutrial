@@ -12,6 +12,7 @@ use EasyCorp\Bundle\EasyAdminBundle\Field\EmailField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextareaField;
 use EasyCorp\Bundle\EasyAdminBundle\Field\TextField;
 use EasyCorp\Bundle\EasyAdminBundle\Filter\EntityFilter;
+use EasyCorp\Bundle\EasyAdminBundle\Field\ImageField;
 
 class CommentCrudController extends AbstractCrudController
 {
@@ -20,6 +21,7 @@ class CommentCrudController extends AbstractCrudController
         return Comment::class;
     }
 
+    # indexページのソート条件
     public function configureCrud(Crud $crud): Crud
     {
         return $crud
@@ -30,6 +32,7 @@ class CommentCrudController extends AbstractCrudController
         ;
     }
     
+    # indexページの抽出方法
     public function configureFilters(Filters $filters): Filters
     {
         return $filters
@@ -37,6 +40,7 @@ class CommentCrudController extends AbstractCrudController
         ;
     }
 
+    # indexページに表示する一覧の情報
     public function configureFields(string $pageName): iterable
     {
 
@@ -46,9 +50,9 @@ class CommentCrudController extends AbstractCrudController
         yield TextareaField::new('text')
             ->hideOnIndex()
         ;
-        yield TextField::new('photoFilename')
-            ->hideOnIndex()
-        ;
+        yield ImageField::new('photoFilename')
+            ->setBasePath('/uploads/photos')
+            ->setLabel('Photo');
 
         $createdAt = DateTimeField::new('createdAt')->setFormTypeOptions([
             'html5' => true,
