@@ -22,7 +22,7 @@ symfony var:export
 symfony console make:migration
 
 ## symfony マイグレーションからDB後進
-symfony console doctrine:migrations:migrate
+comment_id_seq
 
 ## symfony cache clear
 php bin/console cache:clear
