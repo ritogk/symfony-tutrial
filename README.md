@@ -24,6 +24,9 @@ symfony console make:migration
 ## symfony マイグレーションからDB後進
 symfony console doctrine:migrations:migrate
 
+## symfony cache clear
+php bin/console cache:clear
+
 ## php
 # php モジュール確認
 php -m

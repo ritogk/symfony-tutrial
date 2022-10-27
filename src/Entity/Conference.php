@@ -18,6 +18,15 @@ class Conference
     #[ORM\OneToMany(mappedBy: 'conference', targetEntity: Comment::class, orphanRemoval: true)]
     private $comments;
 
+    #[ORM\Column(length: 255)]
+    private ?string $city = null;
+
+    #[ORM\Column(length: 4)]
+    private ?string $year = null;
+
+    #[ORM\Column]
+    private ?bool $isInternational = null;
+
     public function __construct()
     {
         $this->comments = new ArrayCollection();
@@ -54,6 +63,42 @@ class Conference
                 $comment->setConference(null);
             }
         }
+
+        return $this;
+    }
+
+    public function getCity(): ?string
+    {
+        return $this->city;
+    }
+
+    public function setCity(string $city): self
+    {
+        $this->city = $city;
+
+        return $this;
+    }
+
+    public function getYear(): ?string
+    {
+        return $this->year;
+    }
+
+    public function setYear(string $year): self
+    {
+        $this->year = $year;
+
+        return $this;
+    }
+
+    public function isIsInternational(): ?bool
+    {
+        return $this->isInternational;
+    }
+
+    public function setIsInternational(bool $isInternational): self
+    {
+        $this->isInternational = $isInternational;
 
         return $this;
     }
