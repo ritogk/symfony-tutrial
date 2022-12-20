@@ -19,10 +19,10 @@ symfony server:log
 symfony var:export
 
 ## symfony エンティティからmigration作成
-symfony console make:migration
+bin/console doctrine:migrations:diff
 
 ## symfony マイグレーションからDB更新
-php bin/console doctrine:migrations:migrate
+bin/console doctrine:migrations:migrate
 
 ## symfony cache clear
 php bin/console cache:clear
