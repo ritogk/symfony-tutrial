@@ -21,8 +21,8 @@ symfony var:export
 ## symfony エンティティからmigration作成
 symfony console make:migration
 
-## symfony マイグレーションからDB後進
-comment_id_seq
+## symfony マイグレーションからDB更新
+php bin/console doctrine:migrations:migrate
 
 ## symfony cache clear
 php bin/console cache:clear
